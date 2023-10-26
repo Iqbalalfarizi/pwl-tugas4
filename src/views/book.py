@@ -22,7 +22,7 @@ def create_book(request):
 
     return book.to_dict()
 
-@view_config(route='books', request_method='GET', renderer='json')
+@view_config(route='book', request_method='GET', renderer='json')
 def get_book(request):
     """mendapatkan data buku berdasarkan id"""
     db = request.dbsession
@@ -51,7 +51,7 @@ def get_books(request):
         'books': book_list
     }
 
-@view_config(route='books', request_method='PUT', renderer='json')
+@view_config(route='book', request_method='PUT', renderer='json')
 def update_book(request):
     """Melakukan update buku yang sesuai dengan ID"""
     db = request.dbsession
@@ -76,7 +76,7 @@ def update_book(request):
     else:
         raise HTTPNotFound()
 
-@view_config(route_name='books', request_method='DELETE', renderer='json')
+@view_config(route_name='book', request_method='DELETE', renderer='json')
 def delete_book(request):
     """Menghapus data buku dengan ID"""
     db = request.dbsession
